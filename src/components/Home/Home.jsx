@@ -7,6 +7,7 @@ import useIntersect from "../utils/useIntersection";
 
 import "./Home.scss";
 import { HomeLogo } from "./HomeLogo";
+import { RequestInfo } from "./RequestInfo";
 
 export const Home = ({ className }) => {
   const [ref, entry] = useIntersect({});
@@ -17,6 +18,7 @@ export const Home = ({ className }) => {
     <section className={className} ref={ref}>
       <SectionIndicators />
       <Navigation />
+      <RequestInfo />
       <img src={image} alt="Healthy food" className="home_image" />
       <div className="home_message_wrapper">
         <HomeLogo />

@@ -1,3 +1,5 @@
+@import "../../styles/Variables.scss";
+
 .home_wrapper {
   position: relative;
   display: flex;
@@ -12,10 +14,9 @@
     z-index: -1;
     top: 0;
     left: 0;
-    background-color: #d65353;
     filter: saturate(115%);
     object-fit: cover;
-    height: min(100vh, 1200px);
+    height: 100vh;
     width: 100%;
   }
 
@@ -64,5 +65,17 @@
         font-size: 0.45em;
       }
     }
+  }
+
+  .request_info {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: black;
+    padding: 8px 10px;
+    background-color: $opaque_white;
+    transform: rotate(270deg);
   }
 }
