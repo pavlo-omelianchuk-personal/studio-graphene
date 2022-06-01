@@ -1,12 +1,18 @@
 import React from "react";
+
 import image from "../../assets/pexels-lukas-616401.webp";
 import { Navigation } from "../Navidation/Navigation";
 import { SectionIndicators } from "../Navidation/SubsectionIdentifier";
+import useIntersect from "../utils/useIntersection";
 
 import "./Home.scss";
 import { HomeLogo } from "./HomeLogo";
 
-export const Home = ({ className, ref }) => {
+export const Home = ({ className }) => {
+  const [ref, entry] = useIntersect({});
+
+  console.log("in viewport OOO:", entry.isIntersecting);
+
   return (
     <section className={className} ref={ref}>
       <SectionIndicators />
