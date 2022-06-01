@@ -1,0 +1,29 @@
+.nav_wrapper {
+  position: fixed;
+  top: 0;
+  background: rgba(255, 255, 255, 0.443);
+
+  .nav {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+    width: 100vw;
+
+    .nav_item {
+      text-transform: uppercase;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .nav_logo {
+      font-size: 35px;
+    }
+
+    .empty {
+      visibility: hidden;
+    }
+  }
+}
