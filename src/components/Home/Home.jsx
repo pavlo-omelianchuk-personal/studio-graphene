@@ -9,13 +9,13 @@ import "./Home.scss";
 import { HomeLogo } from "./HomeLogo";
 import { RequestInfo } from "./RequestInfo";
 
-export const Home = ({ className }) => {
+export const Home = () => {
   const [ref, entry] = useIntersect({});
 
-  console.log("in viewport OOO:", entry.isIntersecting);
+  console.log("Home in viewport:", entry.isIntersecting);
 
   return (
-    <section className={className} ref={ref}>
+    <section className="home_wrapper" ref={ref}>
       <SectionIndicators />
       <Navigation />
       <RequestInfo />
