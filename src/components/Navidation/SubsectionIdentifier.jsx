@@ -20,7 +20,7 @@ const sections = [
 ];
 
 export const SectionIndicators = () => {
-  const [visibilityState, setVisibilityState] = useState("");
+  const [visibilityState /*, setVisibilityState*/] = useState("");
 
   return (
     <nav className="nav_section_wrapper">
