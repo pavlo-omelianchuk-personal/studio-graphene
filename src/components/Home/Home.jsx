@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import { Navigation } from "../Navidation/Navigation";
 import { SectionIndicators } from "../Navidation/SubsectionIdentifier";
 import { HomeLogo } from "./HomeLogo";
-import { RequestInfo } from "./RequestInfo";
 
 import useIntersect from "../utils/useIntersection";
 import { useSectionVisibility } from "../utils/appContext";
 
 import image from "../../assets/main.webp";
 import "./Home.scss";
+import { StyledButton } from "../reusableComponents/StyledButton";
 
 export const Home = () => {
   const [ref, entry] = useIntersect({});
@@ -23,7 +23,7 @@ export const Home = () => {
     <section className="home_wrapper" ref={ref}>
       <SectionIndicators />
       <Navigation />
-      <RequestInfo />
+      <StyledButton className="request_info" label="Request Info" />
       <img src={image} alt="Healthy food" className="home_image" />
       <div className="home_message_wrapper">
         <HomeLogo />

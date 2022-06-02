@@ -72,15 +72,7 @@
     position: fixed;
     top: 50%;
     right: -15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    width: 100px;
-    height: 30px;
-    text-transform: uppercase;
-    color: black;
+    color: $charcoal;
     background-color: #ffffff;
     transform: rotate(270deg);
     span {

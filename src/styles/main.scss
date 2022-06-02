@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Gill Sans";
-  src: local("Gill Sans"), url("./fonts/GillSans.ttc") format("truetype");
+  src: local("Gill Sans"), url("../fonts/GillSans.ttc") format("truetype");
   font-weight: bold;
 }
 @font-face {
   font-family: "DIN Condensed";
   src: local("DIN Condensed"),
-    url("./fonts/DIN Condensed Bold.ttf") format("truetype");
+    url("../fonts/DIN Condensed Bold.ttf") format("truetype");
   font-weight: bold;
 }
 
@@ -22,4 +22,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-

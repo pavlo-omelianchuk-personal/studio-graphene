@@ -9,7 +9,7 @@
     padding-left: 0;
     display: grid;
     grid-template-columns: [first] 600px [line2] auto [line3] 150px [end];
-    color: black;
+    color: $charcoal;
     width: 90vw;
 
     .nav_left {
