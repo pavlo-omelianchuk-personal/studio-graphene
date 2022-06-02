@@ -1,6 +1,7 @@
 export const HomeLogo = () => {
   return (
     <div className="home_logo">
+      <span />
       <svg viewBox="0 0 200 200">
         <path
           id="curve"

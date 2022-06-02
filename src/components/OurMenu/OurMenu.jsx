@@ -7,12 +7,12 @@ import "./OurMenu.scss";
 
 export const OurMenu = () => {
   const [ref, entry] = useIntersect({});
-  const { setSection4Visibility } = useSectionVisibility();
+  const { setIsVisibleSection4 } = useSectionVisibility();
 
   useEffect(() => {
     const isActive = entry.isIntersecting ? "active" : "";
-    setSection4Visibility(isActive);
-  }, [setSection4Visibility, entry.isIntersecting]);
+    setIsVisibleSection4(isActive);
+  }, [setIsVisibleSection4, entry.isIntersecting]);
 
   return (
     <section className="our_menu" ref={ref}>

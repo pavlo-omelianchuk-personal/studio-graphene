@@ -7,28 +7,28 @@ export function useSectionVisibility() {
 }
 
 export function SectionVisibilityProvider({ children }) {
-  const [section1Visibility, setSection1Visibility] = useState("");
-  const [section2Visibility, setSection2Visibility] = useState("");
-  const [section3Visibility, setSection3Visibility] = useState("");
-  const [section4Visibility, setSection4Visibility] = useState("");
-  const [section5Visibility, setSection5Visibility] = useState("");
-  const [section6Visibility, setSection6Visibility] = useState("");
+  const [isVisibleSection1, setIsVisibleSection1] = useState("");
+  const [isVisibleSection2, setIsVisibleSection2] = useState("");
+  const [isVisibleSection3, setIsVisibleSection3] = useState("");
+  const [isVisibleSection4, setIsVisibleSection4] = useState("");
+  const [isVisibleSection5, setIsVisibleSection5] = useState("");
+  const [isVisibleSection6, setIsVisibleSection6] = useState("");
 
   return (
     <SectionVisibilityContext.Provider
       value={{
-        section1Visibility,
-        setSection1Visibility,
-        section2Visibility,
-        setSection2Visibility,
-        section3Visibility,
-        setSection3Visibility,
-        section4Visibility,
-        setSection4Visibility,
-        section5Visibility,
-        setSection5Visibility,
-        section6Visibility,
-        setSection6Visibility,
+        isVisibleSection1,
+        setIsVisibleSection1,
+        isVisibleSection2,
+        setIsVisibleSection2,
+        isVisibleSection3,
+        setIsVisibleSection3,
+        isVisibleSection4,
+        setIsVisibleSection4,
+        isVisibleSection5,
+        setIsVisibleSection5,
+        isVisibleSection6,
+        setIsVisibleSection6,
       }}
     >
       {children}

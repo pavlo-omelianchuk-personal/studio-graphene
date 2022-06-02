@@ -18,27 +18,39 @@
       position: relative;
       top: 0;
       margin: 0px;
-      font-size: 20px;
-      border-bottom: 2px black solid;
-      width: 25px;
+      font-size: 18px;
+      border-bottom: 1.5px black solid;
+      padding-left: 5px;
+      width: 15px;
+      height: 25px;
       transition: all 0.5s;
 
-      cursor: pointer;
-
-      span {
+      .nav_section_item_content_down {
+        position: absolute;
+        top: -60%;
         opacity: 0;
-        transition: all 0.5s;
+        transition: top 0.5s;
+      }
+      .nav_section_item_content_up {
+        position: absolute;
+        top: 100%;
+        opacity: 0;
+        transition: top 0.5s;
       }
     }
-    .active {
-      border-bottom: 2px black solid;
-      width: 35px;
-      span {
-        position: relative;
-        top: 60%;
-        transform: translate(-60%, 0);
-        transition: all 0.5s;
 
+    .active {
+      width: 30px;
+      .nav_section_item_content_up {
+        position: absolute;
+        top: 60%;
+        transition: all 0.5s;
+        opacity: 1;
+      }
+      .nav_section_item_content_down {
+        position: absolute;
+        top: 60%;
+        transition: all 0.5s;
         opacity: 1;
       }
     }

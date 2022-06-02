@@ -7,12 +7,12 @@ import "./OurCommunity.scss";
 export const OurCommunity = () => {
   const [ref, entry] = useIntersect({});
 
-  const { setSection2Visibility } = useSectionVisibility();
+  const { setIsVisibleSection2 } = useSectionVisibility();
 
   useEffect(() => {
     const isActive = entry.isIntersecting ? "active" : "";
-    setSection2Visibility(isActive);
-  }, [setSection2Visibility,entry.isIntersecting]);
+    setIsVisibleSection2(isActive);
+  }, [setIsVisibleSection2,entry.isIntersecting]);
 
   return (
     <div className="community" ref={ref}>

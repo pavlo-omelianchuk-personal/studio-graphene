@@ -3,30 +3,42 @@
 .nav_wrapper {
   position: fixed;
   top: 0;
-  background-color: $opaque_white;
 
-  .nav {
+  ul.nav {
     list-style-type: none;
     padding-left: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: [first] 600px [line2] auto [line3] 150px [end];
     color: black;
-    width: 100vw;
+    width: 90vw;
+
+    .nav_left {
+      grid-column-start: first;
+      grid-column-end: line2;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      .nav_logo {
+        font-size: 28px;
+      }
+    }
+    .nav_right {
+      grid-column-start: line3;
+      grid-column-end: end;
+      align-items: center;
+      justify-content: space-between;
+
+      display: flex;
+      flex-direction: row;
+    }
 
     .nav_item {
       text-transform: uppercase;
-      font-size: 20px;
+      font-size: 18px;
       cursor: pointer;
-    }
-
-    .nav_logo {
-      font-size: 35px;
-    }
-
-    .empty {
-      visibility: hidden;
     }
   }
 }

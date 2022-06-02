@@ -6,31 +6,41 @@ const NavItem = ({ className, content }) => {
   return <li className={className}>{content}</li>;
 };
 
-const navItems = [
+const navItemsLeft = [
   { content: "Logo", className: "nav_item nav_logo" },
-  { content: "About", className: "nav_item nav_left" },
-  { content: "Comunity", className: "nav_item nav_left" },
-  { content: "Location", className: "nav_item nav_left" },
-  { content: "Our menu", className: "nav_item nav_left" },
-  { content: "Recipes", className: "nav_item nav_left" },
-  { content: "", className: "nav_item empty" },
-  { content: "", className: "nav_item empty" },
-  { content: "", className: "nav_item empty" },
-  { content: "Contact", className: "nav_item nav_right" },
-  { content: "Login", className: "nav_item nav_right" },
+  { content: "About", className: "nav_item " },
+  { content: "Comunity", className: "nav_item " },
+  { content: "Location", className: "nav_item " },
+  { content: "Our menu", className: "nav_item " },
+  { content: "Recipes", className: "nav_item " },
+];
+const navItemsRight = [
+  { content: "Contact", className: "nav_item" },
+  { content: "Login", className: "nav_item" },
 ];
 
 export const Navigation = () => {
   return (
     <nav className="nav_wrapper">
       <ul className="nav">
-        {navItems.map((navItem, index) => (
-          <NavItem
-            key={index}
-            className={navItem.className}
-            content={navItem.content}
-          />
-        ))}
+        <div className="nav_left">
+          {navItemsLeft.map((navItem, index) => (
+            <NavItem
+              key={index}
+              className={navItem.className}
+              content={navItem.content}
+            />
+          ))}
+        </div>
+        <div className="nav_right">
+          {navItemsRight.map((navItem, index) => (
+            <NavItem
+              key={index}
+              className={navItem.className}
+              content={navItem.content}
+            />
+          ))}
+        </div>
       </ul>
     </nav>
   );

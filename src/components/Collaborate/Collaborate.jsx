@@ -7,12 +7,12 @@ import "./Collaborate.scss";
 
 export const Collaborate = () => {
   const [ref, entry] = useIntersect({});
-  const { setSection6Visibility } = useSectionVisibility();
+  const { setIsVisibleSection6 } = useSectionVisibility();
 
   useEffect(() => {
     const isActive = entry.isIntersecting ? "active" : "";
-    setSection6Visibility(isActive);
-  }, [setSection6Visibility, entry.isIntersecting]);
+    setIsVisibleSection6(isActive);
+  }, [setIsVisibleSection6, entry.isIntersecting]);
 
   return (
     <section className="collaborate" ref={ref}>

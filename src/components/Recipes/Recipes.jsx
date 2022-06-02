@@ -7,12 +7,12 @@ import "./Recipes.scss";
 
 export const Recipes = () => {
   const [ref, entry] = useIntersect({});
-  const { setSection5Visibility } = useSectionVisibility();
+  const { setIsVisibleSection5 } = useSectionVisibility();
 
   useEffect(() => {
     const isActive = entry.isIntersecting ? "active" : "";
-    setSection5Visibility(isActive);
-  }, [setSection5Visibility, entry.isIntersecting]);
+    setIsVisibleSection5(isActive);
+  }, [setIsVisibleSection5, entry.isIntersecting]);
 
   return (
     <section className="recipes" ref={ref}>

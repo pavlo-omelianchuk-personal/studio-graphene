@@ -7,12 +7,12 @@ import "./Location.scss";
 
 export const Location = () => {
   const [ref, entry] = useIntersect({});
-  const { setSection3Visibility } = useSectionVisibility();
+  const { setIsVisibleSection3 } = useSectionVisibility();
 
   useEffect(() => {
     const isActive = entry.isIntersecting ? "active" : "";
-    setSection3Visibility(isActive);
-  }, [setSection3Visibility, entry.isIntersecting]);
+    setIsVisibleSection3(isActive);
+  }, [setIsVisibleSection3, entry.isIntersecting]);
 
   return (
     <section className="location" ref={ref}>

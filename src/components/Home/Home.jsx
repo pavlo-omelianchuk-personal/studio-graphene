@@ -7,17 +7,17 @@ import { RequestInfo } from "./RequestInfo";
 import useIntersect from "../utils/useIntersection";
 import { useSectionVisibility } from "../utils/appContext";
 
-import image from "../../assets/pexels-lukas-616401.webp";
+import image from "../../assets/main.webp";
 import "./Home.scss";
 
 export const Home = () => {
   const [ref, entry] = useIntersect({});
-  const { setSection1Visibility } = useSectionVisibility();
+  const { setIsVisibleSection1 } = useSectionVisibility();
 
   useEffect(() => {
     const isActive = entry.isIntersecting ? "active" : "";
-    setSection1Visibility(isActive);
-  }, [setSection1Visibility, entry.isIntersecting]);
+    setIsVisibleSection1(isActive);
+  }, [setIsVisibleSection1, entry.isIntersecting]);
 
   return (
     <section className="home_wrapper" ref={ref}>

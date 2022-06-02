@@ -14,8 +14,9 @@
     z-index: -1;
     top: 0;
     left: 0;
+    background-color: $primary_color;
     filter: saturate(115%);
-    object-fit: cover;
+    object-fit: contain;
     height: 100vh;
     width: 100%;
   }
@@ -45,24 +46,24 @@
     .home_message {
       text-transform: uppercase;
       text-align: center;
-      font-size: 70px;
+      font-size: 82px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       line-height: 1;
+      letter-spacing: 0;
       .home_message__pre_main {
         display: block;
-        letter-spacing: 1.2px;
       }
       .home_message__main {
         display: block;
-        font-size: 1.5em;
+        font-size: 115px;
       }
 
       .home_message__secondary {
         display: block;
-        font-size: 0.45em;
+        font-size: 35px;
       }
     }
   }
@@ -70,12 +71,21 @@
   .request_info {
     position: fixed;
     top: 50%;
-    right: 10px;
-    font-size: 20px;
+    right: -15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    width: 100px;
+    height: 30px;
     text-transform: uppercase;
     color: black;
-    padding: 8px 10px;
-    background-color: $opaque_white;
+    background-color: #ffffff;
     transform: rotate(270deg);
+    span {
+      position: relative;
+      top: 1px;
+    }
   }
 }
