@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function useIntersect({
   root = null,
-  rootMargin = "0px 0px -100px 0px",
+  rootMargin = "-50% 0px -50% 0px",
   threshold = 0,
 }) {
   const [entry, updateEntry] = useState({});

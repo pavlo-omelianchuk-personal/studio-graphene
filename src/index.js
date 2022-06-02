@@ -5,11 +5,14 @@ import App from "./App.js";
 import reportWebVitals from "./reportWebVitals";
 import "./fonts/GillSans.ttc";
 import "./fonts/DIN Condensed Bold.ttf";
+import { SectionVisibilityProvider } from "./components/utils/appContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <SectionVisibilityProvider>
+      <App />
+    </SectionVisibilityProvider>
   </React.StrictMode>
 );
 

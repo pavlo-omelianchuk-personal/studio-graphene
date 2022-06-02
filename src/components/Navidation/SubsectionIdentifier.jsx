@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSectionVisibility } from "../utils/appContext";
 
 import "./SubsectionIdentifier.scss";
 
@@ -10,17 +11,24 @@ const SectionIndicator = ({ className, content }) => {
   );
 };
 
-const sections = [
-  { content: "01", className: "nav_section_item active" },
-  { content: "02", className: "nav_section_item" },
-  { content: "03", className: "nav_section_item" },
-  { content: "04", className: "nav_section_item" },
-  { content: "05", className: "nav_section_item" },
-  { content: "06", className: "nav_section_item" },
-];
-
 export const SectionIndicators = () => {
-  const [visibilityState /*, setVisibilityState*/] = useState("");
+  const {
+    section1Visibility,
+    section2Visibility,
+    section3Visibility,
+    section4Visibility,
+    section5Visibility,
+    section6Visibility,
+  } = useSectionVisibility();
+
+  const sections = [
+    { content: "01", className: `nav_section_item ${section1Visibility}` },
+    { content: "02", className: `nav_section_item ${section2Visibility}` },
+    { content: "03", className: `nav_section_item ${section3Visibility}` },
+    { content: "04", className: `nav_section_item ${section4Visibility}` },
+    { content: "05", className: `nav_section_item ${section5Visibility}` },
+    { content: "06", className: `nav_section_item ${section6Visibility}` },
+  ];
 
   return (
     <nav className="nav_section_wrapper">
@@ -28,7 +36,7 @@ export const SectionIndicators = () => {
         {sections.map((navItem, index) => (
           <SectionIndicator
             key={index}
-            className={`${navItem.className} ${visibilityState}`}
+            className={`${navItem.className}`}
             content={navItem.content}
           />
         ))}
