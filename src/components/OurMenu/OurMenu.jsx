@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Parallax } from "react-scroll-parallax";
 import useIntersect from "../utils/useIntersection";
@@ -18,45 +18,40 @@ export const OurMenu = () => {
   const [sides, setSides] = useState([]);
   const [desserts, setDesserts] = useState([]);
 
-  const firstRender = useRef(true);
 
   useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-    } else {
-      const fetchData = async () => {
-        const result = await fetch(
-          "https://studiographene-exercise-api.herokuapp.com/foods",
-          {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-          }
-        );
-        const jsonResult = await result.json();
-        jsonResult.map((dish) => {
-          switch (dish.type) {
-            case "starters":
-              setStarters((current) => [...current, dish]);
+    const fetchData = async () => {
+      const result = await fetch(
+        "https://studiographene-exercise-api.herokuapp.com/foods",
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      const jsonResult = await result.json();
+      jsonResult.map((dish) => {
+        switch (dish.type) {
+          case "starters":
+            setStarters((current) => [...current, dish]);
 
-              break;
-            case "main_courses":
-              setMainCourses((current) => [...current, dish]);
-              break;
-            case "sides":
-              setSides((current) => [...current, dish]);
-              break;
-            case "desserts":
-              setDesserts((current) => [...current, dish]);
-              break;
+            break;
+          case "main_courses":
+            setMainCourses((current) => [...current, dish]);
+            break;
+          case "sides":
+            setSides((current) => [...current, dish]);
+            break;
+          case "desserts":
+            setDesserts((current) => [...current, dish]);
+            break;
 
-            default:
-              break;
-          }
-          return dish;
-        });
-      };
-      fetchData().catch(console.error);
-    }
+          default:
+            break;
+        }
+        return dish;
+      });
+    };
+    fetchData().catch(console.error);
   }, []);
 
   useEffect(() => {
