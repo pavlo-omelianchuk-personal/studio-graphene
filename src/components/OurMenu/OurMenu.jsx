@@ -18,8 +18,9 @@ export const OurMenu = () => {
   const [sides, setSides] = useState([]);
   const [desserts, setDesserts] = useState([]);
 
+  const firstRender = useRef(true);
+
   useEffect(() => {
-    let isMounted = true;
     if (firstRender.current) {
       firstRender.current = false;
     } else {
@@ -32,37 +33,31 @@ export const OurMenu = () => {
           }
         );
         const jsonResult = await result.json();
-        if (isMounted) {
-          jsonResult.map((dish) => {
-            switch (dish.type) {
-              case "starters":
-                setStarters((current) => [...current, dish]);
+        jsonResult.map((dish) => {
+          switch (dish.type) {
+            case "starters":
+              setStarters((current) => [...current, dish]);
 
-                break;
-              case "main_courses":
-                setMainCourses((current) => [...current, dish]);
-                break;
-              case "sides":
-                setSides((current) => [...current, dish]);
-                break;
-              case "desserts":
-                setDesserts((current) => [...current, dish]);
-                break;
+              break;
+            case "main_courses":
+              setMainCourses((current) => [...current, dish]);
+              break;
+            case "sides":
+              setSides((current) => [...current, dish]);
+              break;
+            case "desserts":
+              setDesserts((current) => [...current, dish]);
+              break;
 
-              default:
-                break;
-            }
-            return dish;
-          });
-        }
+            default:
+              break;
+          }
+          return dish;
+        });
       };
       fetchData().catch(console.error);
-      return () => {
-        isMounted = false;
-      };
     }
   }, []);
-  const firstRender = useRef(true);
 
   useEffect(() => {
     const isActive = entry.isIntersecting ? "active" : "";
@@ -99,24 +94,24 @@ export const OurMenu = () => {
               >
                 <StyledTitle titleContent={menuType} className="types_title" />
                 {index === 0
-                  ? starters.map((menuItem) => {
+                  ? starters?.map((menuItem) => {
                       return (
                         <ParallaxDishes key={menuItem.id} menuItem={menuItem} />
                       );
                     })
                   : index === 1
-                  ? mainCourses.map((menuItem) => {
+                  ? mainCourses?.map((menuItem) => {
                       return (
                         <ParallaxDishes key={menuItem.id} menuItem={menuItem} />
                       );
                     })
                   : index === 2
-                  ? sides.map((menuItem) => {
+                  ? sides?.map((menuItem) => {
                       return (
                         <ParallaxDishes key={menuItem.id} menuItem={menuItem} />
                       );
                     })
-                  : desserts.map((menuItem) => {
+                  : desserts?.map((menuItem) => {
                       return (
                         <ParallaxDishes key={menuItem.id} menuItem={menuItem} />
                       );
