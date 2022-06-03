@@ -1,6 +1,7 @@
 @import "../../styles/Variables.scss";
 
 .nav_wrapper {
+  z-index: 10;
   position: fixed;
   top: 0;
 
@@ -11,6 +12,10 @@
     grid-template-columns: [first] 600px [line2] auto [line3] 150px [end];
     color: $charcoal;
     width: 90vw;
+
+    a {
+      all: unset;
+    }
 
     .nav_left {
       grid-column-start: first;

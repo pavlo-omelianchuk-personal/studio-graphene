@@ -1,4 +1,5 @@
 import React from "react";
+import { ParallaxProvider } from "react-scroll-parallax";
 import { Collaborate } from "./components/Collaborate/Collaborate";
 import { OurCommunity } from "./components/OurCommunity/OurCommunity";
 import { Footer } from "./components/Footer/Footer";
@@ -9,15 +10,17 @@ import { Recipes } from "./components/Recipes/Recipes";
 
 function App() {
   return (
-    <div className="main">
-      <Home />
-      <OurCommunity />
-      <Location />
-      <OurMenu />
-      <Recipes />
-      <Collaborate />
-      <Footer />
-    </div>
+    <ParallaxProvider>
+      <div className="main">
+        <Home />
+        <OurCommunity />
+        <Location />
+        <OurMenu />
+        <Recipes />
+        <Collaborate />
+        <Footer />
+      </div>
+    </ParallaxProvider>
   );
 }
 

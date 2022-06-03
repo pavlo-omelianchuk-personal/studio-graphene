@@ -10,15 +10,14 @@
   font-weight: bold;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   /* font-family: Gill Sans; */
   font-family: DIN Condensed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }

@@ -2,21 +2,25 @@ import React from "react";
 
 import "./Navigation.scss";
 
-const NavItem = ({ className, content }) => {
-  return <li className={className}>{content}</li>;
+const NavItem = ({ className, content, linkTo }) => {
+  return (
+    <li className={className}>
+      <a href={`#${linkTo}`}>{content}</a>
+    </li>
+  );
 };
 
 const navItemsLeft = [
-  { content: "Logo", className: "nav_item nav_logo" },
-  { content: "About", className: "nav_item " },
-  { content: "Comunity", className: "nav_item " },
-  { content: "Location", className: "nav_item " },
-  { content: "Our menu", className: "nav_item " },
-  { content: "Recipes", className: "nav_item " },
+  { content: "Logo", linkTo: "home", className: "nav_item nav_logo" },
+  { content: "About", linkTo: "about", className: "nav_item " },
+  { content: "Comunity", linkTo: "comunity", className: "nav_item " },
+  { content: "Location", linkTo: "location", className: "nav_item " },
+  { content: "Our menu", linkTo: "our_menu", className: "nav_item " },
+  { content: "Recipes", linkTo: "recipes", className: "nav_item " },
 ];
 const navItemsRight = [
-  { content: "Contact", className: "nav_item" },
-  { content: "Login", className: "nav_item" },
+  { content: "Contact", linkTo: "contact", className: "nav_item" },
+  { content: "Login", linkTo: "login", className: "nav_item" },
 ];
 
 export const Navigation = () => {
@@ -29,6 +33,7 @@ export const Navigation = () => {
               key={index}
               className={navItem.className}
               content={navItem.content}
+              linkTo={navItem.linkTo}
             />
           ))}
         </div>

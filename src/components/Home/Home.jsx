@@ -20,7 +20,7 @@ export const Home = () => {
   }, [setIsVisibleSection1, entry.isIntersecting]);
 
   return (
-    <section className="home_wrapper" ref={ref}>
+    <section id="home" className="home_wrapper" ref={ref}>
       <SectionIndicators />
       <Navigation />
       <StyledButton className="request_info" label="Request Info" />

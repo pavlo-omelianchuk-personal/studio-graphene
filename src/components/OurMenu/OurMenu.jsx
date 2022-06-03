@@ -1,15 +1,69 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
+import { Parallax } from "react-scroll-parallax";
 import useIntersect from "../utils/useIntersection";
 import { useSectionVisibility } from "../utils/appContext";
 
 import "./OurMenu.scss";
 import { StyledTitle } from "../reusableComponents/StyledTitle";
-import { StyledButton } from "../reusableComponents/StyledButton";
+
+import { ParallaxDishes } from "./ParallaxMenuColumn";
 
 export const OurMenu = () => {
   const [ref, entry] = useIntersect({});
   const { setIsVisibleSection4 } = useSectionVisibility();
+  const [isVisibleMenuBlock, setIsVisibleMenuBlock] = useState(false);
+  const [starters, setStarters] = useState([]);
+  const [mainCourses, setMainCourses] = useState([]);
+  const [sides, setSides] = useState([]);
+  const [desserts, setDesserts] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    if (firstRender.current) {
+      firstRender.current = false;
+      console.log("first");
+    } else {
+      const fetchData = async () => {
+        const result = await fetch(
+          "https://studiographene-exercise-api.herokuapp.com/foods",
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+        const jsonResult = await result.json();
+        if (isMounted) {
+          jsonResult.map((dish) => {
+            switch (dish.type) {
+              case "starters":
+                setStarters((current) => [...current, dish]);
+
+                break;
+              case "main_courses":
+                setMainCourses((current) => [...current, dish]);
+                break;
+              case "sides":
+                setSides((current) => [...current, dish]);
+                break;
+              case "desserts":
+                setDesserts((current) => [...current, dish]);
+                break;
+
+              default:
+                break;
+            }
+            return dish;
+          });
+        }
+      };
+      fetchData().catch(console.error);
+      return () => {
+        isMounted = false;
+      };
+    }
+  }, []);
+  const firstRender = useRef(true);
 
   useEffect(() => {
     const isActive = entry.isIntersecting ? "active" : "";
@@ -17,8 +71,13 @@ export const OurMenu = () => {
   }, [setIsVisibleSection4, entry.isIntersecting]);
 
   const workArray = ["Starters", "Main Courses", "Sides", "Desserts"];
+
+  console.log(starters);
+  console.log(mainCourses);
+  console.log(sides);
+  console.log(desserts);
   return (
-    <section className="our_menu" ref={ref}>
+    <section id="our_menu" className="our_menu" ref={ref}>
       <StyledTitle
         titleContent="Our Menu"
         className="our_menu_title"
@@ -26,23 +85,49 @@ export const OurMenu = () => {
         button
       />
       <div className="our_menu_wrapper">
-        {workArray.map((column, index) => {
+        {workArray.map((menuType, index) => {
+          const parallaxStart = index === 0 || index === 2 ? "450px" : "-160px";
+          const parallaxEnd = index === 0 || index === 2 ? "-2500px" : "700px";
+          const follingStyle = isVisibleMenuBlock ? "folling" : "";
+
           return (
-            <div
-              className={`our_menu_block our_menu_block${index}`}
+            <Parallax
+              onEnter={() => setIsVisibleMenuBlock(true)}
+              onExit={() => setIsVisibleMenuBlock(false)}
+              translateY={[parallaxStart, parallaxEnd]}
+              easing="easeInQuad"
               key={index}
             >
-              <StyledTitle titleContent={column} className="types_title" />
-              <div className="dish">
-                <div className="dish_title"> El Classico</div>
-                <div className="dish_description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-                  quae atque doloribus modi id deleniti tempore. Laboriosam
-                  aliquid ratione totam.
-                </div>
-                <StyledButton label="£8.95" className="dish_button" />
+              <div
+                ref={ref}
+                className={`our_menu_block our_menu_block${index} ${follingStyle}`}
+              >
+                <StyledTitle titleContent={menuType} className="types_title" />
+                {index === 0
+                  ? starters.map((menuItem) => {
+                      return (
+                        <ParallaxDishes key={menuItem.id} menuItem={menuItem} />
+                      );
+                    })
+                  : index === 1
+                  ? mainCourses.map((menuItem) => {
+                      return (
+                        <ParallaxDishes key={menuItem.id} menuItem={menuItem} />
+                      );
+                    })
+                  : index === 2
+                  ? sides.map((menuItem) => {
+                      return (
+                        <ParallaxDishes key={menuItem.id} menuItem={menuItem} />
+                      );
+                    })
+                  : desserts.map((menuItem) => {
+                      return (
+                        <ParallaxDishes key={menuItem.id} menuItem={menuItem} />
+                      );
+                    })}
               </div>
-            </div>
+            </Parallax>
           );
         })}
       </div>

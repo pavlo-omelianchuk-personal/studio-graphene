@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 120vh;
 
   .our_menu_title {
     z-index: 5;
@@ -15,17 +15,23 @@
   .our_menu_wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    height: 2000px;
     width: 80%;
     height: 100vh;
+    overflow: hidden;
 
     .our_menu_block {
       width: 100%;
-
+      overflow: hidden;
+      margin: 25px;
       .types_title {
+        position: relative;
+        left: -8px;
         align-items: flex-start;
         text-align: left;
-        max-width: 178px;
+        width: 178px;
         line-height: 0.9;
       }
       .dish {
@@ -59,24 +65,32 @@
 
     .our_menu_block0 {
       border-right: 1px solid $lightGray;
-      .types_title {
-        margin-top: 187px;
-      }
+      position: relative;
+      top: 187px;
     }
     .our_menu_block1 {
       border-right: 1px solid $lightGray;
-      .types_title {
-        margin-top: 318px;
-      }
+      position: relative;
+      top: -200px;
     }
     .our_menu_block2 {
       border-right: 1px solid $lightGray;
-      .types_title {
-        margin-top: 279px;
-      }
+      position: relative;
+      top: 279px;
     }
     .our_menu_block3 {
-      margin-top: 224px;
+      position: relative;
+      top: -200px;
+    }
+    .our_menu_block1.folling {
+      position: relative;
+      top: 318px;
+      transition: all ease-out 3s;
+    }
+    .our_menu_block3.folling {
+      position: relative;
+      top: 224px;
+      transition: all ease-out 3s;
     }
   }
 }
