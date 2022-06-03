@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Parallax } from "react-scroll-parallax";
 import useIntersect from "../utils/useIntersection";
@@ -18,7 +18,6 @@ export const OurMenu = () => {
   const [sides, setSides] = useState([]);
   const [desserts, setDesserts] = useState([]);
 
-  const firstRender = useRef(true);
 
   useEffect(() => {
     const fetchData = async () => {
