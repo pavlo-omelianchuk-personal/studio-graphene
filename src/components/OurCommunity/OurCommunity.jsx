@@ -41,8 +41,8 @@ export const OurCommunity = () => {
         </div>
       </div>
       <div className="row_one row_one_right">
-        <img src={detail01} className="detail01" />
-        <img src={detail02} className="detail02" />
+        <img alt="" src={detail01} className="detail01" />
+        <img alt="" src={detail02} className="detail02" />
 
         <div className="inside_flex_arrange">
           <InstaPhoto image={imageOne} />
@@ -57,7 +57,7 @@ export const OurCommunity = () => {
         </div>
       </div>
       <div className="row_two row_two_left">
-        <img src={detail03} className="detail03" />
+        <img alt="" src={detail03} className="detail03" />
         <div className="inside_flex_arrange">
           <InstaMessage
             instaMessageTitle={"@food_lover"}

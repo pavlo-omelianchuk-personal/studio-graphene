@@ -18,11 +18,11 @@ export const InstaMessage = ({
       </div>
       <div className="reactions">
         <div className="comments">
-          <img src={commentImg} />
+          <img alt="" src={commentImg} />
           <span>{comments}</span>
         </div>
         <div className="likes">
-          <img src={likeImg} />
+          <img alt="" src={likeImg} />
           <span>{likes}</span>
         </div>
       </div>
