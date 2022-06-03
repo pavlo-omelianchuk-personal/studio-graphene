@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useIntersect from "../utils/useIntersection";
 import { useSectionVisibility } from "../utils/appContext";
+import { Parallax } from "react-scroll-parallax";
 
 import { StyledTitle } from "../reusableComponents/StyledTitle/StyledTitle";
 import { InstaPhoto } from "../reusableComponents/InstaPhoto/InstaPhoto";
@@ -18,16 +19,29 @@ import "./OurCommunity.scss";
 export const OurCommunity = () => {
   const [ref, entry] = useIntersect({});
 
-  const { setIsVisibleSection2 } = useSectionVisibility();
+  const { isVisibleSection2, setIsVisibleSection2 } = useSectionVisibility();
+  const [isVisibleCommunityBlock1, setIsVisibleCommunityBlock1] =
+    useState(false);
+  const [isVisibleCommunityBlock2, setIsVisibleCommunityBlock2] =
+    useState(false);
+  const [isVisibleCommunityBlock3, setIsVisibleCommunityBlock3] =
+    useState(false);
 
   useEffect(() => {
     const isActive = entry.isIntersecting ? "active" : "";
     setIsVisibleSection2(isActive);
   }, [setIsVisibleSection2, entry.isIntersecting]);
 
+  console.log(isVisibleSection2);
+
+  const raisingStyle1 = isVisibleCommunityBlock1 ? "raising" : "";
+  const raisingStyle2 = isVisibleCommunityBlock2 ? "raising" : "";
+  const raisingStyle3 = isVisibleCommunityBlock3 ? "raising" : "";
+
   return (
     <div id="community" className="community" ref={ref}>
-      <div className="row_one row_one_left">
+      {/* row_one_left */}
+      <div className="row_one_left">
         <StyledTitle
           preTitleContent="Meet Our"
           titleContent="Community"
@@ -40,7 +54,12 @@ export const OurCommunity = () => {
           excepturi
         </div>
       </div>
-      <div className="row_one row_one_right">
+      {/* row_one_right */}
+      <Parallax
+        onEnter={() => setIsVisibleCommunityBlock1(true)}
+        onExit={() => setIsVisibleCommunityBlock1(false)}
+        className={`row_one_right ${raisingStyle1}`}
+      >
         <img alt="" src={detail01} className="detail01" />
         <img alt="" src={detail02} className="detail02" />
 
@@ -55,8 +74,13 @@ export const OurCommunity = () => {
             likes={"18.2K"}
           />
         </div>
-      </div>
-      <div className="row_two row_two_left">
+      </Parallax>
+      {/* row_two_left */}
+      <Parallax
+        onEnter={() => setIsVisibleCommunityBlock2(true)}
+        onExit={() => setIsVisibleCommunityBlock2(false)}
+        className={`row_two_left ${raisingStyle2}`}
+      >
         <img alt="" src={detail03} className="detail03" />
         <div className="inside_flex_arrange">
           <InstaMessage
@@ -69,15 +93,35 @@ export const OurCommunity = () => {
           />
           <InstaPhoto image={imageTwo} />
         </div>
-      </div>
-      <div className="row_three row_three_left">
+      </Parallax>
+      {/* row_two_right */}
+      <Parallax
+        onEnter={() => setIsVisibleCommunityBlock2(true)}
+        onExit={() => setIsVisibleCommunityBlock2(false)}
+        className={`row_two_right ${raisingStyle2}`}
+      >
         <div className="community_description">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
           repellat et omnis alias aut incidunt repellendus ratione odit nisi, id
           est. Fugit quaerat possimus repellat.
         </div>
-      </div>
-      <div className="row_three row_three_right">
+      </Parallax>
+      {/* row_three_left */}
+      <Parallax
+        onEnter={() => setIsVisibleCommunityBlock3(true)}
+        onExit={() => setIsVisibleCommunityBlock3(false)}
+        className={`row_three_left ${raisingStyle3}`}
+      >
+        <div className="community_description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
+          repellat et omnis alias aut incidunt repellendus ratione odit nisi, id
+          est. Fugit quaerat possimus repellat.
+        </div>
+      </Parallax>
+      {/* row_three_right */}
+      <Parallax
+        className={`row_three_right ${raisingStyle3}`}
+      >
         <div className="inside_flex_arrange">
           <InstaMessage
             instaMessageTitle={"@buzzfeedfood"}
@@ -89,7 +133,7 @@ export const OurCommunity = () => {
           />
           <InstaPhoto image={imageThree} />
         </div>
-      </div>
+      </Parallax>
     </div>
   );
 };

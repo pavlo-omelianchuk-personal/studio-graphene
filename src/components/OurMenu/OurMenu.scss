@@ -5,7 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120vh;
+  height: 1000px;
+  margin-bottom: 150px;
 
   .our_menu_title {
     z-index: 5;
@@ -20,7 +21,7 @@
     align-items: center;
     height: 2000px;
     width: 80%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 
     .our_menu_block {

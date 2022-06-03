@@ -1,8 +1,16 @@
 @import "../../styles/Variables.scss";
 
+@mixin rasing_default {
+  position: relative;
+  opacity: 0;
+  top: 200px;
+  transition: cubic-bezier(0.68, 0.31, 0.39, 0.69) 0.75s;
+}
+
 .community {
   display: grid;
   row-gap: 15ch;
+  column-gap: 4ch;
   grid-template-columns: auto 530px 530px auto;
   grid-template-rows: 89px 251px 251px 251px 89px;
   grid-template-areas:
@@ -12,8 +20,6 @@
     ". row_three_left row_three_right ."
     " . . . . ";
   position: relative;
-
-  
 
   .row_one_left {
     position: relative;
@@ -48,8 +54,7 @@
   }
   .row_one_right {
     grid-area: row_one_right;
-    display: block;
-    position: relative;
+    @include rasing_default;
 
     .detail01 {
       position: absolute;
@@ -65,8 +70,7 @@
   .row_two_left {
     z-index: 0;
     grid-area: row_two_left;
-    display: block;
-    position: relative;
+    @include rasing_default;
 
     .detail03 {
       position: absolute;
@@ -74,10 +78,29 @@
       right: 350px;
     }
   }
+  .row_two_right {
+    z-index: 0;
+    grid-area: row_two_right;
+    @include rasing_default;
+
+    .community_description {
+      width: 192px;
+      height: 141px;
+      font-family: Gill Sans;
+      font-weight: 200;
+      color: $charcoal;
+      letter-spacing: 0.15px;
+      font-size: 15px;
+      line-height: 20px;
+      margin-bottom: 20px;
+      margin-left: 20px;
+    }
+  }
   .row_three_left {
     z-index: 0;
     grid-area: row_three_left;
-    display: block;
+
+    @include rasing_default;
 
     .community_description {
       width: 192px;
@@ -94,11 +117,16 @@
   .row_three_right {
     z-index: 0;
     grid-area: row_three_right;
-    display: block;
+    @include rasing_default;
   }
   .inside_flex_arrange {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  .raising {
+    top: 0;
+    opacity: 1;
+    transition: cubic-bezier(0.68, 0.31, 0.39, 0.69) 0.75s;
   }
 }
