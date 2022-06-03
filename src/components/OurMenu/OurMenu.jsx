@@ -21,42 +21,38 @@ export const OurMenu = () => {
   const firstRender = useRef(true);
 
   useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-    } else {
-      const fetchData = async () => {
-        const result = await fetch(
-          "https://studiographene-exercise-api.herokuapp.com/foods",
-          {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-          }
-        );
-        const jsonResult = await result.json();
-        jsonResult.map((dish) => {
-          switch (dish.type) {
-            case "starters":
-              setStarters((current) => [...current, dish]);
+    const fetchData = async () => {
+      const result = await fetch(
+        "https://studiographene-exercise-api.herokuapp.com/foods",
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      const jsonResult = await result.json();
+      jsonResult.map((dish) => {
+        switch (dish.type) {
+          case "starters":
+            setStarters((current) => [...current, dish]);
 
-              break;
-            case "main_courses":
-              setMainCourses((current) => [...current, dish]);
-              break;
-            case "sides":
-              setSides((current) => [...current, dish]);
-              break;
-            case "desserts":
-              setDesserts((current) => [...current, dish]);
-              break;
+            break;
+          case "main_courses":
+            setMainCourses((current) => [...current, dish]);
+            break;
+          case "sides":
+            setSides((current) => [...current, dish]);
+            break;
+          case "desserts":
+            setDesserts((current) => [...current, dish]);
+            break;
 
-            default:
-              break;
-          }
-          return dish;
-        });
-      };
-      fetchData().catch(console.error);
-    }
+          default:
+            break;
+        }
+        return dish;
+      });
+    };
+    fetchData().catch(console.error);
   }, []);
 
   useEffect(() => {
