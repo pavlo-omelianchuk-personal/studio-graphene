@@ -5,7 +5,7 @@ import useIntersect from "../utils/useIntersection";
 import { useSectionVisibility } from "../utils/appContext";
 
 import "./OurMenu.scss";
-import { StyledTitle } from "../reusableComponents/StyledTitle";
+import { StyledTitle } from "../reusableComponents/StyledTitle/StyledTitle";
 
 import { ParallaxDishes } from "./ParallaxMenuColumn";
 
@@ -22,7 +22,6 @@ export const OurMenu = () => {
     let isMounted = true;
     if (firstRender.current) {
       firstRender.current = false;
-      console.log("first");
     } else {
       const fetchData = async () => {
         const result = await fetch(
@@ -70,12 +69,8 @@ export const OurMenu = () => {
     setIsVisibleSection4(isActive);
   }, [setIsVisibleSection4, entry.isIntersecting]);
 
-  const workArray = ["Starters", "Main Courses", "Sides", "Desserts"];
+  const menuSections = ["Starters", "Main Courses", "Sides", "Desserts"];
 
-  console.log(starters);
-  console.log(mainCourses);
-  console.log(sides);
-  console.log(desserts);
   return (
     <section id="our_menu" className="our_menu" ref={ref}>
       <StyledTitle
@@ -85,7 +80,7 @@ export const OurMenu = () => {
         button
       />
       <div className="our_menu_wrapper">
-        {workArray.map((menuType, index) => {
+        {menuSections.map((menuType, index) => {
           const parallaxStart = index === 0 || index === 2 ? "450px" : "-160px";
           const parallaxEnd = index === 0 || index === 2 ? "-2500px" : "700px";
           const follingStyle = isVisibleMenuBlock ? "folling" : "";

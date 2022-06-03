@@ -1,0 +1,22 @@
+.insta_photo_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  box-shadow: 0px 15px 50px #0000000f;
+  img.insta_photo {
+    width: 222px;
+    height: 222px;
+  }
+  .insta_logo {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 60px;
+    height: 60px;
+    display: block;
+  }
+}

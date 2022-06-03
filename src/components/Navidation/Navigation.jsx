@@ -13,7 +13,7 @@ const NavItem = ({ className, content, linkTo }) => {
 const navItemsLeft = [
   { content: "Logo", linkTo: "home", className: "nav_item nav_logo" },
   { content: "About", linkTo: "about", className: "nav_item " },
-  { content: "Comunity", linkTo: "comunity", className: "nav_item " },
+  { content: "Comunity", linkTo: "community", className: "nav_item " },
   { content: "Location", linkTo: "location", className: "nav_item " },
   { content: "Our menu", linkTo: "our_menu", className: "nav_item " },
   { content: "Recipes", linkTo: "recipes", className: "nav_item " },

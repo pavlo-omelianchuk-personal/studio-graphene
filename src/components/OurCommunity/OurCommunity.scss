@@ -1,7 +1,104 @@
+@import "../../styles/Variables.scss";
+
 .community {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 120vh;
-  border: 1px solid #000;
+  display: grid;
+  row-gap: 15ch;
+  grid-template-columns: auto 530px 530px auto;
+  grid-template-rows: 89px 251px 251px 251px 89px;
+  grid-template-areas:
+    ". . . ."
+    ". row_one_left row_one_right ."
+    ". row_two_left row_two_right ."
+    ". row_three_left row_three_right ."
+    " . . . . ";
+  position: relative;
+
+  
+
+  .row_one_left {
+    position: relative;
+    z-index: 0;
+    grid-area: row_one_left;
+
+    .our_community_title {
+      position: absolute;
+      align-items: flex-start;
+      right: 20px;
+      top: -110px;
+      .pre_title {
+        font-size: 62px;
+        position: relative;
+        top: 20px;
+      }
+      .stripe_title {
+        width: 266px;
+      }
+    }
+
+    .community_special_subtitle {
+      position: absolute;
+      bottom: 30px;
+      right: 50px;
+      width: 199px;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 0.44px;
+      line-height: 25px;
+    }
+  }
+  .row_one_right {
+    grid-area: row_one_right;
+    display: block;
+    position: relative;
+
+    .detail01 {
+      position: absolute;
+      bottom: -25px;
+      right: -12px;
+    }
+    .detail02 {
+      position: absolute;
+      bottom: -20px;
+      right: 230px;
+    }
+  }
+  .row_two_left {
+    z-index: 0;
+    grid-area: row_two_left;
+    display: block;
+    position: relative;
+
+    .detail03 {
+      position: absolute;
+      bottom: -30px;
+      right: 350px;
+    }
+  }
+  .row_three_left {
+    z-index: 0;
+    grid-area: row_three_left;
+    display: block;
+
+    .community_description {
+      width: 192px;
+      height: 141px;
+      font-family: Gill Sans;
+      font-weight: 200;
+      color: $charcoal;
+      letter-spacing: 0.15px;
+      font-size: 15px;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  .row_three_right {
+    z-index: 0;
+    grid-area: row_three_right;
+    display: block;
+  }
+  .inside_flex_arrange {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

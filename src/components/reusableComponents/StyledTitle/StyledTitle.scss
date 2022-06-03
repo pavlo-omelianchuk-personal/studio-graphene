@@ -1,0 +1,28 @@
+@import "../../../styles/Variables.scss";
+
+.sections_title {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .pre_title {
+    font-size: 35px;
+  }
+  .title_wrapper {
+    position: relative;
+    .title {
+      font-size: 62px;
+    }
+    .stripe_title {
+      position: absolute;
+      left: -17px;
+      top: 33px;
+      z-index: -1;
+      display: block;
+      width: 237px;
+      height: 5.7px;
+      background-color: $primary_color;
+    }
+  }
+}

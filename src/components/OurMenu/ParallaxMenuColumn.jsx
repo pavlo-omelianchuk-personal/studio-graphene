@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledButton } from "../reusableComponents/StyledButton";
+import { StyledButton } from "../reusableComponents/StyledButton/StyledButton";
 
 export const ParallaxDishes = ({ menuItem }) => {
   return (

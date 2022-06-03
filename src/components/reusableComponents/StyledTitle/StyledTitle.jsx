@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./StyledTitle.scss";
-import { StyledButton } from "./StyledButton";
+import { StyledButton } from "../StyledButton/StyledButton";
 
 export const StyledTitle = ({
   preTitleContent,
@@ -13,7 +13,7 @@ export const StyledTitle = ({
   return (
     <div className={`sections_title ${className}`}>
       <span className="pre_title">{preTitleContent}</span>
-      <div>
+      <div className="title_wrapper">
         <span className="title">{titleContent}</span>
         {stripe && <span className="stripe_title" />}
       </div>

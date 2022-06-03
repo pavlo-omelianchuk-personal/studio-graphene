@@ -8,7 +8,7 @@ import { useSectionVisibility } from "../utils/appContext";
 
 import image from "../../assets/main.webp";
 import "./Home.scss";
-import { StyledButton } from "../reusableComponents/StyledButton";
+import { StyledButton } from "../reusableComponents/StyledButton/StyledButton";
 
 export const Home = () => {
   const [ref, entry] = useIntersect({});
