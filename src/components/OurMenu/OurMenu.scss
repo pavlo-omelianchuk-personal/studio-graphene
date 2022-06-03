@@ -24,75 +24,78 @@
     height: 100%;
     overflow: hidden;
 
-    .our_menu_block {
-      width: 100%;
-      overflow: hidden;
-      margin: 25px;
-      .types_title {
+    .our_menu_parallax_wrapper {
+      max-height: 1000px;
+      .our_menu_block {
+        width: 100%;
+        overflow: hidden;
+        margin: 25px;
+        .types_title {
+          position: relative;
+          left: -8px;
+          align-items: flex-start;
+          text-align: left;
+          width: 178px;
+          line-height: 0.9;
+        }
+        .dish {
+          width: 192px;
+          margin: 50px auto;
+
+          .dish_title {
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 20px;
+          }
+
+          .dish_description {
+            font-family: Gill Sans;
+            font-weight: 200;
+            color: $gray;
+            letter-spacing: 0.15px;
+            font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 20px;
+          }
+
+          .dish_button {
+            background-color: transparent;
+            border: 2px solid $primary_color;
+            width: 53px;
+            height: 28px;
+          }
+        }
+      }
+
+      .our_menu_block0 {
+        border-right: 1px solid $lightGray;
         position: relative;
-        left: -8px;
-        align-items: flex-start;
-        text-align: left;
-        width: 178px;
-        line-height: 0.9;
+        top: 187px;
       }
-      .dish {
-        width: 192px;
-        margin: 50px auto;
-
-        .dish_title {
-          text-transform: uppercase;
-          font-size: 14px;
-          margin-bottom: 20px;
-        }
-
-        .dish_description {
-          font-family: Gill Sans;
-          font-weight: 200;
-          color: $gray;
-          letter-spacing: 0.15px;
-          font-size: 15px;
-          line-height: 20px;
-          margin-bottom: 20px;
-        }
-
-        .dish_button {
-          background-color: transparent;
-          border: 2px solid $primary_color;
-          width: 53px;
-          height: 28px;
-        }
+      .our_menu_block1 {
+        border-right: 1px solid $lightGray;
+        position: relative;
+        top: -200px;
       }
-    }
-
-    .our_menu_block0 {
-      border-right: 1px solid $lightGray;
-      position: relative;
-      top: 187px;
-    }
-    .our_menu_block1 {
-      border-right: 1px solid $lightGray;
-      position: relative;
-      top: -200px;
-    }
-    .our_menu_block2 {
-      border-right: 1px solid $lightGray;
-      position: relative;
-      top: 279px;
-    }
-    .our_menu_block3 {
-      position: relative;
-      top: -200px;
-    }
-    .our_menu_block1.folling {
-      position: relative;
-      top: 318px;
-      transition: all ease-out 3s;
-    }
-    .our_menu_block3.folling {
-      position: relative;
-      top: 224px;
-      transition: all ease-out 3s;
+      .our_menu_block2 {
+        border-right: 1px solid $lightGray;
+        position: relative;
+        top: 279px;
+      }
+      .our_menu_block3 {
+        position: relative;
+        top: -200px;
+      }
+      .our_menu_block1.folling {
+        position: relative;
+        top: 318px;
+        transition: all ease-out 3s;
+      }
+      .our_menu_block3.folling {
+        position: relative;
+        top: 224px;
+        transition: all ease-out 3s;
+      }
     }
   }
 }

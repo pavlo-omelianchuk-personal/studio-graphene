@@ -82,6 +82,7 @@ export const OurMenu = () => {
               translateY={[parallaxStart, parallaxEnd]}
               easing="easeInQuad"
               key={index}
+              className="our_menu_parallax_wrapper"
             >
               <div
                 ref={ref}
