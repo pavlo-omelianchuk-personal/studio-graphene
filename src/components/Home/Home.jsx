@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Navigation } from "../Navidation/Navigation";
-import { SectionIndicators } from "../Navidation/SubsectionIdentifier";
+import { Navigation } from "../Navigation/Navigation";
+import { SectionIndicators } from "../Navigation/SubsectionIdentifier";
 import { HomeLogo } from "./HomeLogo";
 
 import useIntersect from "../utils/useIntersection";
